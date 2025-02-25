@@ -1,7 +1,6 @@
 import { User } from "../models/User.model.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
-import bcrypt from 'bcrypt';
 import { fileURLToPath } from 'url';
 import path,{ dirname } from 'path';
 import { uploadOnCloudinary } from '../utils/cloudinary.js';
