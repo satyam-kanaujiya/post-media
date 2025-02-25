@@ -56,8 +56,6 @@ const registerUser = asyncHandler(async (req,res)=>{
 const loginUser = asyncHandler(async (req,res)=>{
     const {username,password,email} = req.body;
 
-    console.log(req.body);
-
     if([username,password,email].some((field)=>field.trim()===""))
     {
         throw new ApiError("Please fill all the fields",400);
@@ -80,7 +78,7 @@ const loginUser = asyncHandler(async (req,res)=>{
     }
 
     const checkPassword = await checkUser.isPasswordCorrect(password);
-    console.log("printing password condition ",checkPassword);   
+     
     if(!checkPassword){
         throw new ApiError("incorrect password",403);
     }

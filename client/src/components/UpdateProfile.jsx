@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAuthContext } from '../context/AuthContext';
-import { Navigate, replace } from 'react-router-dom';
+import { Navigate, replace, useNavigate } from 'react-router-dom';
 
 const UpdateProfile = ({id}) => {
   const [profile, setProfile] = useState(null);
   const {user} = useAuthContext;
+  const navigate = useNavigate();
 
-  console.log("printing id",id);
+  // console.log("printing id",id);
 
   // Handle file input change
   const handleFileChange = (e) => {
@@ -24,13 +25,13 @@ const UpdateProfile = ({id}) => {
     // const id = "66d035da77661845932cd79f";
     console.log("printing id inside form submit",id);
             try {
-                console.log(data);
+                // console.log(data);
                 const response = await axios.put(`http://localhost:8080/api/v1/users/${id}`, data, {
                   headers: {
                     'Content-Type': 'multipart/form-data',
                   },
                 });
-                console.log(response.data);
+                // console.log(response.data);
                 setProfile(null);
               } 
             catch (error) {
