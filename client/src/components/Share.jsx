@@ -4,6 +4,7 @@ import { BsTagFill } from "react-icons/bs";
 import { useAuthContext } from '../context/AuthContext';
 import noUserImg from '../assets/noProfile.jpg';
 import axios from 'axios';
+import {toast} from 'react-hot-toast';
 
 function Share() {
     const desc = useRef();
@@ -28,10 +29,17 @@ function Share() {
                   'Content-Type': 'multipart/form-data',
                 },
               });
-            // console.log('printing response',res.data);
+
+            console.log('printing response',res.data);
+
+            if(!res.data.success)
+            {
+               toast.error(res.data.message);
+            }
             desc.current.value = "";
-             setPostFile(null);
+            setPostFile(null);
         } catch (error) {
+            toast.error(error.message);
             console.log(error.message);
         }
        

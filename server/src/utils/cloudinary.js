@@ -22,7 +22,7 @@ const uploadOnCloudinary= async(localFilePath,folder,quality=10) => {
         console.error(error.message);
         console.log('file upload failed!');
         fs.unlinkSync(localFilePath);
-        return null;
+        return "";
     }
 }
 

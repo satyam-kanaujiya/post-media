@@ -2,7 +2,6 @@ import React, { useState,useEffect } from 'react'
 import { MdOutlineMoreVert } from "react-icons/md";
 import heart from '../assets/heart.png'
 import likeImg from '../assets/like.png'
-// import { users } from '../data/data';
 import noUserImg from '../assets/noProfile.jpg';
 import axios from 'axios';
 import {format} from 'timeago.js';
@@ -12,6 +11,7 @@ import { useAuthContext } from '../context/AuthContext';
 function Post({post,username}) {
     // console.log("printing post ",post)
     const {user:currentUser} = useAuthContext();
+    // console.log(currentUser);
     const [user,setUser] = useState({});
 
     const [like,setLike] = useState(post.likes.length);
@@ -19,7 +19,7 @@ function Post({post,username}) {
 
     const handleLike = async() =>{
         try {
-            await axios.put(`http://127.0.0.1:8080/api/v1/users/posts/likes/${post?._id}`,{likedBy:currentUser?.data?._id});
+            await axios.put(`http://127.0.0.1:8080/api/v1/users/posts/likes/${post?._id}`,{likedBy:currentUser?._id});
         } catch (error) {
             console.log("fetching like failed!")
         }

@@ -14,8 +14,8 @@ export default function Login() {
         dispatch({type:"LOGIN SUCCESS",payload:res.data.data});
       } catch (error) {
         dispatch({type:"LOGIN FAIL",payload:error});
-        toast.error(error.message);
-        console.log(error);
+        toast.error(error.response.data.message);
+        // console.log(error.response.data.message);
       }
   }
   const email = useRef();

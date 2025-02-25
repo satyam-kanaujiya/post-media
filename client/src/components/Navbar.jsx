@@ -13,9 +13,9 @@ function Navbar({username,handleTimelineSuccess}) {
   return (
     <div className="h-12 z-10 w-full bg-blue-500 flex items-center sticky top-0">
         <div className="w-[25%] flex items-center">
-            <Link to="/">
-                <span className="ml-4 text-[24px]  font-bold text-[white] cursor-pointer">SocialMedia</span>
-            </Link>
+            {/* <Link to="/" > */}
+                <span className="ml-4 text-[24px]  font-bold text-[white] cursor-pointer" onClick={()=>handleTimelineSuccess(false)}>SocialMedia</span>
+            {/* </Link> */}
         </div>
         <div className="w-[40%]">
             <div className="w-full h-7 bg-white rounded-3xl gap-3 flex items-center">
@@ -27,10 +27,10 @@ function Navbar({username,handleTimelineSuccess}) {
             <div className="ml-4 gap-3 flex">
                 {  username && 
                     <Link to="/">
-                    <span className="cursor-pointer">Homepage</span>
+                        <span className="cursor-pointer">Homepage</span>
                     </Link>
                 }
-                {!username && <button className="cursor-pointer" onClick={handleTimelineSuccess}>All Post</button>}
+                {!username && <button className="cursor-pointer" onClick={()=>handleTimelineSuccess(true)}>All Post</button>}
             </div>
             <button onClick={handleLogout}>Logout</button>
             <div className="flex justify-evenly gap-4 ">

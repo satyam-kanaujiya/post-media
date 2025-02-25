@@ -6,9 +6,10 @@ import {useState} from 'react';
 
 function Home() {
   const [timeline,setTimeline] = useState(false);
+  
   // console.log(timeline);
-  const handleTimelineSuccess = () =>{
-    setTimeline(true);
+  const handleTimelineSuccess = (checkTrue) =>{
+    setTimeline(checkTrue);
   }
   return (
     <>

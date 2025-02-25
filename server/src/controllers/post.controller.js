@@ -12,9 +12,9 @@ const __dirname = dirname(__filename);
 //create post
 
 const createPost = asyncHandler(async (req,res)=>{
-  // console.log(req.files);
-  const file = req.files.postFile;
-  // console.log("file : ",file);
+  console.log(req.files);
+  const file = req.files?.postFile;
+  console.log("file : ",file);
 
   let localPath = path.resolve(__dirname, '../../public/temp/', + Date.now() + `.${file.name.split(".")[1]}`); ;
   console.log("printing path: ",localPath);
@@ -29,8 +29,19 @@ const createPost = asyncHandler(async (req,res)=>{
      throw new ApiError("file type unsupported",403);
   }
   //upload on cloudinary
-  // console.log("i am before cloudinary: ");
-  const postUrl = await uploadOnCloudinary(localPath, "socialMediav1",10) || "";
+  let postUrl = "";
+  try {
+    postUrl = await uploadOnCloudinary(localPath, "socialMediav1",10);
+  } catch (error) {
+     throw new ApiError("image uploadation failed, please try again",403);
+  }
+  if(!postUrl)
+  {
+    return res.status(202).json({
+      message:`Failed, please try again`,
+      success:false,
+    })
+  }
   console.log("printing postFile",postUrl);
 
       const newPost = new Post({
@@ -82,6 +93,7 @@ const deletePost = asyncHandler(async (req,res)=>{
 const likePost = asyncHandler(async (req,res)=>{
     const {id} = req.params;
     const {likedBy} = req.body;
+
     const post = await Post.findById(id);
     if(post.likes.includes(likedBy))
     {

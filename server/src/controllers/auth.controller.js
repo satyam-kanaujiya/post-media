@@ -76,13 +76,13 @@ const loginUser = asyncHandler(async (req,res)=>{
     
     if(!checkUser)
     {
-        throw new ApiError("user not found",404);
+        throw new ApiError("user not found",403);
     }
 
-    const checkPassword = checkUser.isPasswordCorrect(password);
-        
+    const checkPassword = await checkUser.isPasswordCorrect(password);
+    console.log("printing password condition ",checkPassword);   
     if(!checkPassword){
-        throw new ApiError("incorrect password");
+        throw new ApiError("incorrect password",403);
     }
 
     const user = await User.findById(checkUser._id).select("-password");
