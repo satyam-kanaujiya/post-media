@@ -1,0 +1,39 @@
+*{
+  margin: 0;
+  font-family: 'roboto','sans-serif';
+  box-sizing: border-box;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .li-style {
+    @apply flex items-center gap-4;
+  }
+  .li-icon {
+    @apply text-xl
+  }
+  .span-style {
+    @apply font-normal;
+  }
+  .share-option{
+    @apply flex items-center mr-[15px] cursor-pointer
+  }
+  .share-icon{
+    @apply text-2xl mr-2
+  }
+  .share-text{
+    @apply text-sm font-medium
+  }
+  .rightbarInfoItem{
+    @apply mb-[10px]
+  }
+  .rightbarInfoKey{
+    @apply font-medium mr-[15px] text-[#555]
+  }
+  .rightbarInfoValue{
+    @apply font-light
+  }
+}
