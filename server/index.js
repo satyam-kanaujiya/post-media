@@ -3,14 +3,12 @@ dotenv.config({path:"./.env"});
 import app from "./app.js";
 import dbConnect from "./src/database/dbConnect.js";
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 dbConnect()
 .then(()=>{
-    app.listen(PORT,()=>{
-        console.log(`server is running at port: ${PORT}`);
-    })
+    app.listen(PORT,()=>{});
 })
 .catch((err)=>{
-    console.log("server cannot listen");
+    process.exit(1);
 });
