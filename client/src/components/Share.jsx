@@ -62,7 +62,7 @@ function Share() {
             {postUrl && (
                 <div className='relative mb-5'>
                     <img src={postUrl} alt="" className='w-full h-[300px] object-contain'/>
-                    <MdCancel  className='absolute top-3 right-3 text-2xl cursor-pointer font-extrabold' onClick={()=>setPostUrl("")}/>
+                    <MdCancel  className='absolute top-[-10px] right-3 text-2xl cursor-pointer font-extrabold' onClick={()=>setPostUrl("")}/>
                 </div>
             )}
             <form onSubmit={handleShareForm} className='flex items-center justify-between w-full'>
