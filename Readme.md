@@ -4,7 +4,7 @@
 PostMedia is a full-stack social media web application where users can create posts with text and images, like posts, follow other users, and manage their own profiles. The app features authentication, profile viewing, Cloudinary image uploads, and real-time UI updates — all built with the MERN stack.
 
 ## Live Website  
-🔗 [Deployed on Vercel](https://your-postmedia-frontend.vercel.app)
+🔗 [Deployed on Vercel](https://post-media-frontend.vercel.app/)
 
 ## Features  
 - [x] User authentication (Register / Login / Logout)
@@ -22,9 +22,10 @@ PostMedia is a full-stack social media web application where users can create po
 - **Image Storage:** Cloudinary  
 - **Deployment:** Vercel (frontend & backend)
 
-## Screenshots  
+## Screenshots
+
 ### Home Page  
-![Home Page](screenshots\home.PNG)
+![Home Page](screenshots/home.PNG)
 
 ### Login Page  
 ![Login Page](screenshots/login.PNG)
