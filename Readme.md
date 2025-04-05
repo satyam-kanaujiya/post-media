@@ -36,10 +36,7 @@ PostMedia is a full-stack social media web application where users can create po
 ![Profile Page](screenshots/profile.PNG)
 
 ### Create Post  
-![Create Post](screenshots/create-post.png)
+![Create Post](screenshots/create.PNG)
 
 ### Edit Profile Picture  
 ![Edit Profile](screenshots/update.PNG)
-
-### 404 Page  
-![404 Page](screenshots/404.png)
